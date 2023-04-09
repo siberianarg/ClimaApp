@@ -11,12 +11,12 @@ class WeatherViewController: UIViewController, UITextFieldDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        searchTextField.delegate.
+        
     }
 
 
     @IBAction func searchPressed(_ sender: UIButton) {
-        print(searchTextField.text!)
+        
     }
 }
 
