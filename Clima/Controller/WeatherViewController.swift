@@ -2,7 +2,7 @@
 import UIKit
 
 class WeatherViewController: UIViewController, UITextFieldDelegate  {
-
+    
     @IBOutlet weak var conditionImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
@@ -16,8 +16,8 @@ class WeatherViewController: UIViewController, UITextFieldDelegate  {
         searchTextField.delegate = self
         
     }
-
-
+    
+    
     @IBAction func searchPressed(_ sender: UIButton) {
         print(searchTextField.text!)
         
@@ -28,7 +28,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate  {
         searchTextField.endEditing(true)
         print(searchTextField.text!)
         return true
-         
+        
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
@@ -41,10 +41,14 @@ class WeatherViewController: UIViewController, UITextFieldDelegate  {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-       
-        textField.text = ""
         
+        if let city = searchTextField.text {
+            weatherManager.fetchWeather(cityName: city)
+            
+        }
+        textField.text = ""
     }
 }
 
-  
+
+
