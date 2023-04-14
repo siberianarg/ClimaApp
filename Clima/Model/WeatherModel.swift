@@ -1,9 +1,3 @@
-//
-//  WeatherModel.swift
-//  Clima
-//
-//  Created by Perizat Omar on 14.04.2023.
-//
 
 import Foundation
 

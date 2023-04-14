@@ -19,7 +19,6 @@ class WeatherViewController: UIViewController {
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
         
-        
         weatherManager.delegate = self
         searchTextField.delegate = self
     }
@@ -30,7 +29,6 @@ class WeatherViewController: UIViewController {
 }
 
 //MARK: - UITextFieldDelegate
-
 extension WeatherViewController: UITextFieldDelegate {
     
     @IBAction func searchPressed(_ sender: UIButton) {
@@ -68,7 +66,6 @@ extension WeatherViewController: WeatherManagerDelegate {
             self.temperatureLabel.text = weather.tempString
             self.conditionImageView.image = UIImage(systemName: weather.conditionName)
             self.cityLabel.text = weather.cityName
-            
         }
     }
         
