@@ -64,6 +64,7 @@ extension WeatherViewController: WeatherManagerDelegate {
             self.temperatureLabel.text = weather.tempString
             self.conditionImageView.image = UIImage(systemName: weather.conditionName)
             self.cityLabel.text = weather.cityName
+            
         }
     }
         
@@ -76,7 +77,11 @@ extension WeatherViewController: WeatherManagerDelegate {
 extension WeatherViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("Got location data")
+        if let location = locations.last {
+            let lat = location.coordinate.latitude
+            let lon = location.coordinate.longitude
+            weatherManager.fetchWeather(lat, lon)
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
