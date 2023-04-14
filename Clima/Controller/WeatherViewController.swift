@@ -42,10 +42,13 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
         searchTextField.text = ""
     }
     
-    func didUpdateWeather(weather: WeatherModel) {
-        print(weather.temperature)
+    func didUpdateWeather(_ weatherManager: WeatherManager, _ weather: WeatherModel) {
+        print(weather.tempString)
     }
         
+    func didFailWithError(error: Error) {
+        print(error)
+    }
 }
 
 
