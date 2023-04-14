@@ -40,27 +40,11 @@ struct WeatherManager {
             
             let weather = WeatherModel(conditionId: id, cityName: name, temperature: temp)
             
-            
-            
             print(weather.conditionId)
-
+            print(weather.tempString)
             
         } catch {
             print(error)
         }
-        
     }
-    
-    
-    
-//    func getWeatherImage() -> String {
-//        return weatherImage ?? ""
-//    }
-    
-    
-//    func getWeatherTemp() -> String {
-//        return String(format: "%.0f", weatherTemp)
-//    }
-    
-    
 }
