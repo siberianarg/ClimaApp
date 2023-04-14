@@ -8,8 +8,6 @@ class WeatherViewController: UIViewController, UITextFieldDelegate  {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var searchTextField: UITextField!
     
-    var weatherManager = WeatherManager(weatherTemp: <#String#>)
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
