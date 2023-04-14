@@ -5,6 +5,10 @@ struct WeatherManager {
     //https
     let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=b5f291d42e6b66e28c8468268d19e83f&units=metric"
     
+//    var weatherImage: String?
+//    var weatherTemp: String?
+    
+    
     func fetchWeather(cityName: String) {
         let urlString = "\(weatherURL)&q=\(cityName)"
         performRequest(urlString: urlString)
@@ -36,11 +40,14 @@ struct WeatherManager {
             let decodedData = try decoder.decode(WeatherData.self, from: weatherData)
             let id = decodedData.weather[0].id
             print(getConditionName(weatherId: id))
+//            self.weatherImage = getConditionName(weatherId: id)
+            let temp = decodedData.main.temp
         } catch {
             print(error)
         }
         
     }
+    
     func getConditionName(weatherId: Int) -> String {
         switch weatherId {
         case 200...232:
@@ -61,5 +68,15 @@ struct WeatherManager {
             return "cloud"
         }
     }
+    
+//    func getWeatherImage() -> String {
+//        return weatherImage ?? ""
+//    }
+    
+    
+//    func getWeatherTemp() -> String {
+//        return String(format: "%.0f", weatherTemp)
+//    }
+    
     
 }
