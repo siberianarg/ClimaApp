@@ -26,11 +26,11 @@ struct WeatherModel {
         case 500...531:
             return "cloud.rain"
         case 600...622:
-            return "claud.snow"
+            return "cloud.snow"
         case 701...781:
             return "cloud.fog"
         case 800:
-            return "cloud.max"
+            return "sun.max"
         case 801...804:
             return "cloud.bolt"
         default:
