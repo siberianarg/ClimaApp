@@ -16,7 +16,9 @@ class WeatherViewController: UIViewController {
         super.viewDidLoad()
         
         locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
         
+        locationManager.delegate = self
         weatherManager.delegate = self
         searchTextField.delegate = self
     }
@@ -66,5 +68,13 @@ extension WeatherViewController: WeatherManagerDelegate {
         
     func didFailWithError(error: Error) {
         print(error)
+    }
+}
+
+//MARK: - CLLocationManagerDelegate
+extension WeatherViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("Got location data")
     }
 }
